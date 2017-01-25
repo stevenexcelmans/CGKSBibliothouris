@@ -33,4 +33,12 @@ public class BookController {
             @RequestParam(value = "last name", required = true) String lastName){
         bookService.addBook(isbn, title, firstName, lastName);
     }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody
+    String getBookDetails(
+            @RequestParam(value = "ISBN", required = true) long ISBN){
+        return bookService.returnBookInfo(ISBN);
+    }
+
 }

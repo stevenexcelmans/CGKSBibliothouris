@@ -27,4 +27,8 @@ public class BookService {
 
         bookRepository.addBook(new Book(isbn, title, author));
     }
+
+    public String returnBookInfo(long isbn){
+        return bookRepository.getShortDetails(isbn);
+    }
 }
