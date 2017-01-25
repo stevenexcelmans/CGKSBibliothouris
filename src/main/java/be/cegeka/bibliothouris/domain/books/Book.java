@@ -25,6 +25,10 @@ public class Book {
         return author;
     }
 
+    public String getShortDetails(){
+        return String.format("%s (%s)", title, isbn);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
