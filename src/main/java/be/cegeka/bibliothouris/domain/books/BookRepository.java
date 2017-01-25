@@ -18,7 +18,7 @@ public class BookRepository {
         books.add(book);
     }
 
-    public String getShortDetails (long isbn){
+    public String getShortDetails (String isbn){
         for (Book book : books) {
             if (book.getIsbn() == isbn){
                 return book.getShortDetails();
@@ -27,8 +27,13 @@ public class BookRepository {
         return null;
     }
 
-    public List<Book> searchBook(String partialIsbn) {
-        return books.searchBooks(partialIsbn);
+    public String partialIsbn(String isbn){
+        for(Book book : books){
+        }
     }
-
+/*
+    public List<Ibsn> searchBook(char ) {
+        return books.searchBook(partialIsbn);
+    }
+*/
 }
