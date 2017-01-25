@@ -25,8 +25,12 @@ public class AuthorTest {
     public void equals_returnsEqualObject() throws Exception {
         Author expected = new Author("Dan", "Brown");
         Assertions.assertThat(author).isEqualTo(expected);
-
+        Assertions.assertThat(author).isEqualTo(author);
     }
 
+    @Test
+    public void equals_returnsNull() throws Exception {
+        Assertions.assertThat(author.equals(null)).isFalse();
+    }
 
 }
