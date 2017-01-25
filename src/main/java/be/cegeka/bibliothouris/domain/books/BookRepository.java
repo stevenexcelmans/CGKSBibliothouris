@@ -27,9 +27,14 @@ public class BookRepository {
         return null;
     }
 
-    public String partialIsbn(String isbn){
+    public List<Book> partialIsbn(String isbn){
+        List<Book> booksWithPartialIsbn = new ArrayList<>();
         for(Book book : books){
+            if (book.getIsbn().matches(isbn)){
+                booksWithPartialIsbn.add(book);
+            }
         }
+        return booksWithPartialIsbn;
     }
 /*
     public List<Ibsn> searchBook(char ) {
