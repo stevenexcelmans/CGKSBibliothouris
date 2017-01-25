@@ -23,8 +23,11 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    List<Book> getBooks(){return bookService.getAllBooks();}
+    public
+    @ResponseBody
+    List<Book> getBooks() {
+        return bookService.getAllBooks();
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public
@@ -33,25 +36,27 @@ public class BookController {
             @RequestParam(value = "title", required = true) String title,
             @RequestParam(value = "ISBN", required = true) String isbn,
             @RequestParam(value = "first name", required = true) String firstName,
-            @RequestParam(value = "last name", required = true) String lastName){
+            @RequestParam(value = "last name", required = true) String lastName) {
         bookService.addBook(isbn, title, firstName, lastName);
     }
 
     @RequestMapping(value = "/getShortDetails", method = RequestMethod.GET)
-    public @ResponseBody
+    public
+    @ResponseBody
     String getBookDetails(
-            @RequestParam(value = "ISBN", required = true) String ISBN){
+            @RequestParam(value = "ISBN", required = true) String ISBN) {
         return bookService.returnBookInfo(ISBN);
     }
 
     @RequestMapping(value = "/searchBook", method = RequestMethod.GET)
-    public @ResponseBody
-    ResponseEntity<List<Book>> searchBook(String partialIsbn){
+    public
+    @ResponseBody
+    ResponseEntity<List<Book>> searchBook(String partialIsbn) {
         ResponseEntity<List<Book>> repsponse = new ResponseEntity<List<Book>>(bookService.searchBook(partialIsbn), HttpStatus.OK);
-        if (repsponse.getBody().size()==0){
+        if (repsponse.getBody().size() == 0) {
             repsponse = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
         }
-                return repsponse;
+        return repsponse;
     }
 
 }
