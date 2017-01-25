@@ -15,7 +15,7 @@ public class BookControllerTest {
     @Before
     public void setup(){
         Author author = new Author("J.K.", "Rowling");
-        book = new Book(12345, "Harry Potter", author);
+        book = new Book("12345", "Harry Potter", author);
     }
 
     @Test
