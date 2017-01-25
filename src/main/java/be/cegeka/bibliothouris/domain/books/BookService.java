@@ -10,10 +10,10 @@ import java.util.List;
 public class BookService {
 
     @Inject
-    private BookRepository bookRepository;
+    private BookRepository bookRepository = new BookRepository();
 
     @Inject
-    private AuthorRepository authorRepository;
+    private AuthorRepository authorRepository = new AuthorRepository();
 
     public List<Book> getAllBooks(){
         return bookRepository.getAllBooks();
