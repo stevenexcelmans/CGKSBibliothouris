@@ -44,7 +44,7 @@ public class BookRepository {
         partialTitle = partialTitle.replaceAll("\\*", "[^0-9]");
         List<Book> booksWithPartialTitle = new ArrayList<>();
         for (Book book : books) {
-            if (book.getIsbn().matches(partialTitle)) {
+            if (book.getTitle().matches(partialTitle)) {
                 booksWithPartialTitle.add(book);
             }
         }
