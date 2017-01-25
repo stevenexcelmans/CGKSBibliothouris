@@ -3,6 +3,7 @@ package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookService;
+import com.sun.jmx.remote.internal.ArrayQueue;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,6 +55,17 @@ public class BookController {
     ResponseEntity<List<Book>> searchBook(String partialIsbn) {
         ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBook(partialIsbn), HttpStatus.OK);
         if (response.getBody().size() == 0) {
+            response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/searchByPartialTitle", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity<List<Book>> searchByPartialTitle(String partialTitle){
+        ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBookPartialTitle(partialTitle), HttpStatus.OK);
+        if(response.getBody().size()==0){
             response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
         }
         return response;
