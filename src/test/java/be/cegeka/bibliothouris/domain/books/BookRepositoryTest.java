@@ -13,13 +13,15 @@ public class BookRepositoryTest {
     public void setUp(){
         br = new BookRepository();
         br.addBook(new Book("123456", "The Da Vinci Code", new Author("Dan", "Brown")));
+        Author author = new Author ("J.K.", "Rowling");
+        Book book = new Book("123", "Harry Potter", author);
+        br.addBook(new Book("2345", "Perfume", new Author("Patrick", "Suskind")));
+        br.addBook(book);
     }
 
     @Test
     public void getDetailsBook(){
-        Author author = new Author ("J.K.", "Rowling");
-        Book book = new Book("123", "Harry Potter", author);
-        br.addBook(book);
+
         br.getShortDetails("123");
 
 
@@ -29,9 +31,16 @@ public class BookRepositoryTest {
 
     @Test
     public void searchBookWithWildcards_ShouldReturnOneBook(){
-        String wildcartString = "123*6";
+        String wildCard = "123*6";
 
-        Assertions.assertThat(br.searchBook(wildcartString).size()).isEqualTo(1);
+        Assertions.assertThat(br.searchBook(wildCard).size()).isEqualTo(1);
+    }
+
+    @Test
+    public void searchBookWithWildcard_ShouldReturn2(){
+        String wildcard = "12*";
+
+        Assertions.assertThat(br.searchBook(wildcard).size()).isEqualTo(2);
     }
 
 }
