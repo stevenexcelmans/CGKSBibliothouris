@@ -1,9 +1,11 @@
 package be.cegeka.bibliothouris.domain.books;
 
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Named
 public class AuthorRepository {
 
     private List<Author> authorList = new ArrayList<>();
