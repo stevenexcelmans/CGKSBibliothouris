@@ -9,7 +9,7 @@ public class BookRepository {
 
     private List<Book> books = new ArrayList<>();
 
-    public List<Book> getBook() {
+    public List<Book> getAllBooks() {
         return books;
     }
     public void addBook (Book book){

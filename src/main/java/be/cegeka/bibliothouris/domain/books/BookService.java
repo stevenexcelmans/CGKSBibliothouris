@@ -1,8 +1,16 @@
 package be.cegeka.bibliothouris.domain.books;
 
-/**
- * Created by stevene on 25/01/2017.
- */
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.List;
+
+@Named
 public class BookService {
 
+    @Inject
+    private BookRepository bookRepository;
+
+    public List<Book> getAllBooks(){
+        return bookRepository.getAllBooks();
+    }
 }
