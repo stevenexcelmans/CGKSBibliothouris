@@ -34,7 +34,8 @@ public class BookController {
         bookService.addBook(isbn, title, firstName, lastName);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    //@RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/getShortDetails", method = RequestMethod.GET)
     public @ResponseBody
     String getBookDetails(
             @RequestParam(value = "ISBN", required = true) long ISBN){
