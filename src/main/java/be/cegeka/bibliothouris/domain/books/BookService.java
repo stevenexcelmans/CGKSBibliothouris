@@ -33,6 +33,9 @@ public class BookService {
     }
 
     public List<Book> searchBook(String partialIsbn) {
-        return bookRepository.searchBook(partialIsbn);
+        return bookRepository.searchBookISBN(partialIsbn);
+    }
+    public List<Book> searchBookPartialTitle(String partialTitle) {
+        return bookRepository.searchBookPartialTitle(partialTitle);
     }
 }
