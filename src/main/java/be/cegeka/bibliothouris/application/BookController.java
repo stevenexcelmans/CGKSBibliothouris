@@ -52,11 +52,11 @@ public class BookController {
     public
     @ResponseBody
     ResponseEntity<List<Book>> searchBook(String partialIsbn) {
-        ResponseEntity<List<Book>> repsponse = new ResponseEntity<List<Book>>(bookService.searchBook(partialIsbn), HttpStatus.OK);
-        if (repsponse.getBody().size() == 0) {
-            repsponse = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
+        ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBook(partialIsbn), HttpStatus.OK);
+        if (response.getBody().size() == 0) {
+            response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
         }
-        return repsponse;
+        return response;
     }
 
 }
