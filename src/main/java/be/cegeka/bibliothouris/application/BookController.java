@@ -27,7 +27,7 @@ public class BookController {
     public
     @ResponseBody
     void addBook(
-            @RequestParam( value = "title", required = true) String title,
+            @RequestParam(value = "title", required = true) String title,
             @RequestParam(value = "ISBN", required = true) long isbn,
             @RequestParam(value = "first name", required = true) String firstName,
             @RequestParam(value = "last name", required = true) String lastName){
