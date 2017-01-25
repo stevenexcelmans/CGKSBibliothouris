@@ -27,10 +27,11 @@ public class BookRepository {
         return null;
     }
 
-    public List<Book> searchBook(String isbn){
+    public List<Book> searchBook(String partial){
+        partial = partial.replaceAll("\\*", "[0-9]*-?[0-9]*");
         List<Book> booksWithPartialIsbn = new ArrayList<>();
         for(Book book : books){
-            if (book.getIsbn().matches(isbn)){
+            if (book.getIsbn().matches(partial)){
                 booksWithPartialIsbn.add(book);
             }
         }
