@@ -18,11 +18,11 @@ public class BookRepository {
         books.add(book);
     }
 
-    public Book getShortDetails (long isbn){
+    public String getShortDetails (long isbn){
         String detailsBook = null;
         for (Book book : books) {
             if (book.getIsbn() == isbn){
-                return book;
+                return book.getShortDetails();
             }
         }
         return null;
