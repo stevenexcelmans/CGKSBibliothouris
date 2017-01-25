@@ -15,14 +15,14 @@ public class BookRepositoryTest {
     @Test
     public void getDetailsBook(){
         Author author = new Author ("J.K.", "Rowling");
-        Book book = new Book(123, "Harry Potter", author);
+        Book book = new Book("123", "Harry Potter", author);
         BookRepository br = new BookRepository();
         br.addBook(book);
-        br.getShortDetails(123);
+        br.getShortDetails("123");
 
 
         String expected = "Harry Potter (123)";
-        Assertions.assertThat(br.getShortDetails(123)).isEqualTo(expected);
+        Assertions.assertThat(br.getShortDetails("123")).isEqualTo(expected);
     }
 
 }

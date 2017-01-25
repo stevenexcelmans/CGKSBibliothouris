@@ -14,7 +14,7 @@ public class BookTest {
     @Before
     public void setUp() {
         author = new Author("J.K.", "Rowling");
-        book = new Book(12345, "Harry Potter", author);
+        book = new Book("12345", "Harry Potter", author);
     }
 
     @Test
