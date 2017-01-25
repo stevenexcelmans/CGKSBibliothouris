@@ -2,30 +2,31 @@ package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.books.Author;
 import be.cegeka.bibliothouris.domain.books.Book;
+import be.cegeka.bibliothouris.domain.books.BookRepository;
+import be.cegeka.bibliothouris.domain.books.BookService;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.awt.*;
+import java.util.*;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class BookControllerTest {
 
     private Book book;
+    private BookService bookService;
+    private BookRepository bookRepository;
 
     @Before
     public void setup(){
         Author author = new Author("J.K.", "Rowling");
         book = new Book("12345", "Harry Potter", author);
+        bookService = new BookService();
+        bookService.addBook("12345", "Harry Potter", "J.K.", "Rowling");
     }
-
-    /*
-    @RequestMapping(value = "/getShortDetails", method = RequestMethod.GET)
-    public @ResponseBody
-    String getBookDetails(
-            @RequestParam(value = "ISBN", required = true) String ISBN){
-        return bookService.returnBookInfo(ISBN);
-    }
-     */
 
     @Test
     public void getBookDetails_returnsBookDetails(){
@@ -35,17 +36,7 @@ public class BookControllerTest {
 
     @Test
     public void searchBook_returnsPartialIsbn(){
-        String expected = "123";
-        Assertions.assertThat(expected).isEqualTo(bookService.searchBook);
+        Assertions.assertThat(bookService.searchBook("123*").size()).isEqualTo(1);
     }
-
-    /*
-    @RequestMapping(value = "/searchBook", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Book> searchBook(String partialIsbn){
-                return bookService.searchBook(partialIsbn);
-    }
-     */
-
 
 }
