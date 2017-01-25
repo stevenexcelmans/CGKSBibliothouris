@@ -1,6 +1,7 @@
 package be.cegeka.bibliothouris.domain.books;
 
 import javax.inject.Named;
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +18,14 @@ public class BookRepository {
         books.add(book);
     }
 
-    public String getShortDetails (List books){
-        
-
+    public Book getShortDetails (long isbn){
+        String detailsBook = null;
+        for (Book book : books) {
+            if (book.getIsbn() == isbn){
+                return book;
+            }
+        }
+        return null;
     }
 
 }
