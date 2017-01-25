@@ -3,6 +3,8 @@ package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -43,8 +46,12 @@ public class BookController {
 
     @RequestMapping(value = "/searchBook", method = RequestMethod.GET)
     public @ResponseBody
-    List<Book> searchBook(String partialIsbn){
-                return bookService.searchBook(partialIsbn);
+    ResponseEntity<List<Book>> searchBook(String partialIsbn){
+        ResponseEntity<List<Book>> repsponse = new ResponseEntity<List<Book>>(bookService.searchBook(partialIsbn), HttpStatus.OK);
+        if (repsponse.getBody().size()==0){
+            repsponse = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
+        }
+                return repsponse;
     }
 
 }
