@@ -28,7 +28,7 @@ public class BookController {
     @ResponseBody
     void addBook(
             @RequestParam(value = "title", required = true) String title,
-            @RequestParam(value = "ISBN", required = true) long isbn,
+            @RequestParam(value = "ISBN", required = true) String isbn,
             @RequestParam(value = "first name", required = true) String firstName,
             @RequestParam(value = "last name", required = true) String lastName){
         bookService.addBook(isbn, title, firstName, lastName);
@@ -37,7 +37,7 @@ public class BookController {
     @RequestMapping(value = "/getShortDetails", method = RequestMethod.GET)
     public @ResponseBody
     String getBookDetails(
-            @RequestParam(value = "ISBN", required = true) long ISBN){
+            @RequestParam(value = "ISBN", required = true) String ISBN){
         return bookService.returnBookInfo(ISBN);
     }
 

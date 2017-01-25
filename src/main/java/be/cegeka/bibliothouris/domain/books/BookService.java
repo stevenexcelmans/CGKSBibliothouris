@@ -19,7 +19,7 @@ public class BookService {
         return bookRepository.getAllBooks();
     }
 
-    public void addBook(long isbn, String title, String firstName, String lastName) {
+    public void addBook(String isbn, String title, String firstName, String lastName) {
         Author author = authorRepository.getAuthor(firstName, lastName);
         if (author == null){
             author = authorRepository.addAuthor(firstName, lastName);
@@ -28,7 +28,7 @@ public class BookService {
         bookRepository.addBook(new Book(isbn, title, author));
     }
 
-    public String returnBookInfo(long isbn){
+    public String returnBookInfo(String isbn){
         return bookRepository.getShortDetails(isbn);
     }
 
