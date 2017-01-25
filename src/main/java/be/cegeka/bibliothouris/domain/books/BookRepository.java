@@ -27,10 +27,8 @@ public class BookRepository {
         return null;
     }
 
-    public String searchBook(String partial){
-        for (Book book : searchBook){
-
-        }
+    public List<Book> searchBook(String partialIsbn) {
+        return books.searchBooks(partialIsbn);
     }
 
 }
