@@ -34,12 +34,17 @@ public class BookController {
         bookService.addBook(isbn, title, firstName, lastName);
     }
 
-    //@RequestMapping(method = RequestMethod.GET)
     @RequestMapping(value = "/getShortDetails", method = RequestMethod.GET)
     public @ResponseBody
     String getBookDetails(
             @RequestParam(value = "ISBN", required = true) long ISBN){
         return bookService.returnBookInfo(ISBN);
+    }
+
+    @RequestMapping(value = "/searchBook", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Book> searchBook(String partialIsbn){
+                return bookService.searchBook(partialIsbn);
     }
 
 }

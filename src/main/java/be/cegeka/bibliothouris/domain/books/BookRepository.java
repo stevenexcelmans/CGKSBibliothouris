@@ -28,4 +28,7 @@ public class BookRepository {
         return null;
     }
 
+    public List<Book> searchBook(String partialIsbn) {
+        return books.searchBooks(partialIsbn);
+    }
 }

@@ -31,4 +31,8 @@ public class BookService {
     public String returnBookInfo(long isbn){
         return bookRepository.getShortDetails(isbn);
     }
+
+    public List<Book> searchBook(String partialIsbn) {
+        return bookRepository.searchBook(partialIsbn);
+    }
 }
