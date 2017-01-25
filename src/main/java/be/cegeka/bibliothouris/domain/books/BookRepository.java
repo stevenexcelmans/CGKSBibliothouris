@@ -17,5 +17,9 @@ public class BookRepository {
         books.add(book);
     }
 
+    public String getShortDetails (List books){
+        
+
+    }
 
 }
