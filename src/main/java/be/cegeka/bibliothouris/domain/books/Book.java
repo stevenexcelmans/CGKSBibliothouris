@@ -44,4 +44,9 @@ public class Book {
         result = 31 * result + (author != null ? author.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "isbn: " + isbn +  ", title: " + title + ", author: " + author + ".";
+    }
 }
