@@ -19,13 +19,18 @@ public class BookRepository {
     }
 
     public String getShortDetails (long isbn){
-        String detailsBook = null;
         for (Book book : books) {
             if (book.getIsbn() == isbn){
                 return book.getShortDetails();
             }
         }
         return null;
+    }
+
+    public String searchBook(String partial){
+        for (Book book : searchBook){
+
+        }
     }
 
 }
