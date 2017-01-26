@@ -36,6 +36,8 @@ public class UserController {
         userService.addUser(name);
     }
 
+    @RequestMapping(value = "/addMember", method = RequestMethod.POST)
+    public
     @ResponseBody
     void addMember(
             @RequestParam(value = "INSZ", required = true) String INSZ,
