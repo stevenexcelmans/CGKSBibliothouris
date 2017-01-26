@@ -50,4 +50,15 @@ public class BookRepository {
         }
         return booksWithPartialTitle;
     }
+
+    public List<Book> searchBookPartialAuthor(String partialAuthor) {
+        partialAuthor = partialAuthor.replaceAll("\\*", "[^0-9]*");
+        List<Book> booksWithPartialAuthor = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getAuthor().toString().matches(partialAuthor)) {
+                booksWithPartialAuthor.add(book);
+            }
+        }
+        return booksWithPartialAuthor;
+    }
 }

@@ -57,4 +57,6 @@ public class BookRepositoryTest {
         String wildcard ="The Da*";
         Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(1);
     }
+
+
 }

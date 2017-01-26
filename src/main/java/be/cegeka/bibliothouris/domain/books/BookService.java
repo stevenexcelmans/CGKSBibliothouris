@@ -39,4 +39,9 @@ public class BookService {
         return bookRepository.searchBookPartialTitle(partialTitle);
     }
 
+    public List<Book> searchBookPartialAuthor(String partialAuthor) {
+        return bookRepository.searchBookPartialAuthor(partialAuthor);
+    }
+
+
 }

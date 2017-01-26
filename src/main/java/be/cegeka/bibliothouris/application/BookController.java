@@ -71,4 +71,15 @@ public class BookController {
         return response;
     }
 
+    @RequestMapping(value = "/searchByPartialAuthor", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity<List<Book>> searchByPartialAuthor(String partialAuthor){
+        ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBookPartialAuthor(partialAuthor), HttpStatus.OK);
+        if(response.getBody().size()==0){
+            response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
+        }
+        return response;
+    }
+
 }
