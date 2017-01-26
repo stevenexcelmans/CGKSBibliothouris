@@ -14,10 +14,14 @@ public class Member {
         this.INSZ = INSZ;
         this.lastName = lastName;
         this.firstName = firstName;
+        this.city = city;
         this.street = street;
         this.number = number;
         this.postalCode = postalCode;
-        this.city = city;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getINSZ() {
@@ -31,6 +35,13 @@ public class Member {
     public String getCity() {
         return city;
     }
+
+
+    public String getShortDetailsMembers (){
+        return String.format("%s %s, %s (%s)", lastName, firstName, city, INSZ);
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -46,4 +57,6 @@ public class Member {
     public int hashCode() {
         return INSZ.hashCode();
     }
+
+
 }
