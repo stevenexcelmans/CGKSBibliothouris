@@ -15,26 +15,27 @@ public class BookService {
     @Inject
     private AuthorRepository authorRepository = new AuthorRepository();
 
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
     }
 
     public void addBook(String isbn, String title, String firstName, String lastName) {
         Author author = authorRepository.getAuthor(firstName, lastName);
-        if (author == null){
+        if (author == null) {
             author = authorRepository.addAuthor(firstName, lastName);
         }
 
         bookRepository.addBook(new Book(isbn, title, author));
     }
 
-    public String returnBookInfo(String isbn){
+    public String returnBookInfo(String isbn) {
         return bookRepository.getShortDetails(isbn);
     }
 
     public List<Book> searchBook(String partialIsbn) {
         return bookRepository.searchBookISBN(partialIsbn);
     }
+
     public List<Book> searchBookPartialTitle(String partialTitle) {
         return bookRepository.searchBookPartialTitle(partialTitle);
     }

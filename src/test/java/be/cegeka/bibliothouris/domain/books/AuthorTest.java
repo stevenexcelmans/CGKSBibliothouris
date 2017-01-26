@@ -32,6 +32,4 @@ public class AuthorTest {
     public void equals_returnsNull() throws Exception {
         Assertions.assertThat(author.equals(null)).isFalse();
     }
-
-
 }

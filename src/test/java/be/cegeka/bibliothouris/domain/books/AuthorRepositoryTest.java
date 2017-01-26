@@ -13,25 +13,25 @@ public class AuthorRepositoryTest {
     private AuthorRepository repo;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         repo = new AuthorRepository();
         repo.addAuthor("Dan", "Brown");
         repo.addAuthor("Pieter", "Aspe");
     }
 
     @Test
-    public void addAuthor_AddsAuthorToRepo_sizeShouldBe(){
+    public void addAuthor_AddsAuthorToRepo_sizeShouldBe() {
         Assertions.assertThat(repo.getAllAuthors().size()).isEqualTo(2);
     }
 
     @Test
-    public void addAuthor_AddsAuthor_returnsCreatedAuthor(){
-        Author expected = new Author("JK","Rowling");
+    public void addAuthor_AddsAuthor_returnsCreatedAuthor() {
+        Author expected = new Author("JK", "Rowling");
         Assertions.assertThat(repo.addAuthor("JK", "Rowling")).isEqualTo(expected);
     }
 
     @Test
-    public void getAuthor_returnedAuthorIsEqualToAuthorWithSameNameAndFirstName(){
+    public void getAuthor_returnedAuthorIsEqualToAuthorWithSameNameAndFirstName() {
         Assertions.assertThat(repo.getAuthor("Dan", "Brown")).isEqualTo(new Author("Dan", "Brown"));
     }
 }

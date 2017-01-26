@@ -9,18 +9,19 @@ import org.junit.Test;
  */
 public class BookRepositoryTest {
     private BookRepository br;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         br = new BookRepository();
         br.addBook(new Book("123456", "The Da Vinci Code", new Author("Dan", "Brown")));
         br.addBook(new Book("978-90-245-4790-6", "Angels and demons", new Author("Dan", "Brown")));
-        br.addBook(new Book("123", "Harry Potter", new Author ("J.K.", "Rowling")));
+        br.addBook(new Book("123", "Harry Potter", new Author("J.K.", "Rowling")));
         br.addBook(new Book("2345", "Perfume", new Author("Patrick", "Suskind")));
-        br.addBook(new Book("87949","The Horse Whisperer", new Author("Jos", "Vanopdenhoek")));
+        br.addBook(new Book("87949", "The Horse Whisperer", new Author("Jos", "Vanopdenhoek")));
     }
 
     @Test
-    public void getDetailsBook(){
+    public void getDetailsBook() {
 
         br.getShortDetails("123");
 
@@ -29,46 +30,46 @@ public class BookRepositoryTest {
     }
 
     @Test
-    public void searchBookWithWildcards_ShouldReturnOneBook(){
+    public void searchBookWithWildcards_ShouldReturnOneBook() {
         String wildCard = "123*6";
 
         Assertions.assertThat(br.searchBookISBN(wildCard).size()).isEqualTo(1);
     }
 
     @Test
-    public void searchBookWithWildcard_ShouldReturn2(){
+    public void searchBookWithWildcard_ShouldReturn2() {
         String wildcard = "12*";
 
         Assertions.assertThat(br.searchBookISBN(wildcard).size()).isEqualTo(2);
     }
+
     @Test
-    public void searchBookWithWildcardTitlePer_ShouldReturn1(){
-        String wildcard ="Per*";
+    public void searchBookWithWildcardTitlePer_ShouldReturn1() {
+        String wildcard = "Per*";
         Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(1);
     }
+
     @Test
-    public void searchBookWithWildcardTitleThe_ShouldReturn2(){
-        String wildcard ="The*";
+    public void searchBookWithWildcardTitleThe_ShouldReturn2() {
+        String wildcard = "The*";
         Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(2);
     }
 
     @Test
-    public void searchBookWithWildcardTitleThe_ShouldReturn1(){
-        String wildcard ="The Da*";
+    public void searchBookWithWildcardTitleThe_ShouldReturn1() {
+        String wildcard = "The Da*";
         Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(1);
     }
 
     @Test
-    public void searchBookWithWildcardAuthorDa_ShouldReturn1(){
-        String wildcard ="Da*";
+    public void searchBookWithWildcardAuthorDa_ShouldReturn1() {
+        String wildcard = "Da*";
         Assertions.assertThat(br.searchBookPartialAuthor(wildcard).size()).isEqualTo(2);
     }
 
     @Test
-    public void searchBookWithWildcardAuthorIng_ShouldReturn1(){
-        String wildcard ="*ing";
+    public void searchBookWithWildcardAuthorIng_ShouldReturn1() {
+        String wildcard = "*ing";
         Assertions.assertThat(br.searchBookPartialAuthor(wildcard).size()).isEqualTo(1);
     }
-
-
 }

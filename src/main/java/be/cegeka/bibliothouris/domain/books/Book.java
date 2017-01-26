@@ -25,7 +25,7 @@ public class Book {
         return author;
     }
 
-    public String getShortDetails(){
+    public String getShortDetails() {
         return String.format("%s (%s)", title, isbn);
     }
 
@@ -51,6 +51,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "isbn: " + isbn +  ", title: " + title + ", author: " + author + ".";
+        return "isbn: " + isbn + ", title: " + title + ", author: " + author + ".";
     }
 }
