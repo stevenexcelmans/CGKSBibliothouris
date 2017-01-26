@@ -13,6 +13,7 @@ public class BookRepositoryTest {
     public void setUp(){
         br = new BookRepository();
         br.addBook(new Book("123456", "The Da Vinci Code", new Author("Dan", "Brown")));
+        br.addBook(new Book("978-90-245-4790-6", "Angels and demons", new Author("Dan", "Brown")));
         br.addBook(new Book("123", "Harry Potter", new Author ("J.K.", "Rowling")));
         br.addBook(new Book("2345", "Perfume", new Author("Patrick", "Suskind")));
         br.addBook(new Book("87949","The Horse Whisperer", new Author("Jos", "Vanopdenhoek")));
@@ -51,11 +52,22 @@ public class BookRepositoryTest {
         Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(2);
     }
 
-    // TEST BELOW IS INVALID -- NEEDS A FIX!!!
     @Test
     public void searchBookWithWildcardTitleThe_ShouldReturn1(){
         String wildcard ="The Da*";
         Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(1);
+    }
+
+    @Test
+    public void searchBookWithWildcardAuthorDa_ShouldReturn1(){
+        String wildcard ="Da*";
+        Assertions.assertThat(br.searchBookPartialAuthor(wildcard).size()).isEqualTo(2);
+    }
+
+    @Test
+    public void searchBookWithWildcardAuthorIng_ShouldReturn1(){
+        String wildcard ="*ing";
+        Assertions.assertThat(br.searchBookPartialAuthor(wildcard).size()).isEqualTo(1);
     }
 
 
