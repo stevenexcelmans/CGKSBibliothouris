@@ -28,5 +28,7 @@ public class MemberService {
             memberRepository.addMember(new Member(INSZ, lastName, firstName, street, number, postalCode, city));
         }
 
+
     }
+
 }
