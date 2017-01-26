@@ -2,6 +2,7 @@ package be.cegeka.bibliothouris.domain.members;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.util.List;
 
@@ -15,19 +16,20 @@ public class MemberService {
         return memberRepository.getAllMembers();
     }
 
-    public void addMember(String INSZ, String lastName, String firstName, String street, String number, String postalCode, String city) {
+    public String addMember(String INSZ, String lastName, String firstName, String street, String number, String postalCode, String city) {
+        StringBuilder errorMessage = new StringBuilder("Please fill in: ");
         if (lastName == null) {
-            JOptionPane.showMessageDialog(null, "Please fill in last name.");
+            errorMessage.append("last name ");
         }
         if (city == null) {
-            JOptionPane.showMessageDialog(null, "Please fill in city.");
+            errorMessage.append("city ");
         }
         if (INSZ == null) {
-            JOptionPane.showMessageDialog(null, "Please fill in INSZ.");
+            errorMessage.append("INSZ");
         } else {
             memberRepository.addMember(new Member(INSZ, lastName, firstName, street, number, postalCode, city));
         }
-
+        return errorMessage.toString();
 
     }
 
