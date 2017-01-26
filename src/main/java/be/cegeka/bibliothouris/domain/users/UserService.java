@@ -26,10 +26,6 @@ public class UserService {
         return userRepository.getAllUsers();
     }
 
-    public List<Member> getShortDetailsAllMembers() {
-        return memberRepository.getShortDetailsListMembers();
-    }
-
     public void addMember(Member member) {
         memberRepository.addMember(member);
     }
