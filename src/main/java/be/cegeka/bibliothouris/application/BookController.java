@@ -21,7 +21,7 @@ import java.util.List;
 public class BookController {
 
     @Inject
-    private BookService bookService;
+    private BookService bookService = new BookService();
 
     @RequestMapping(method = RequestMethod.GET)
     public

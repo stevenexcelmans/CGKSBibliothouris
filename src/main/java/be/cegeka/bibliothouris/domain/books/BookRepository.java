@@ -41,7 +41,7 @@ public class BookRepository {
     }
 
     public List<Book> searchBookPartialTitle(String partialTitle) {
-        partialTitle = partialTitle.replaceAll("\\*", "[^0-9]");
+        partialTitle = partialTitle.replaceAll("\\*", "[^0-9]*");
         List<Book> booksWithPartialTitle = new ArrayList<>();
         for (Book book : books) {
             if (book.getTitle().matches(partialTitle)) {

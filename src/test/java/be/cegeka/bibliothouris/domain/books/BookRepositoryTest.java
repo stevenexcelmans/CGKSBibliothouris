@@ -43,18 +43,18 @@ public class BookRepositoryTest {
     @Test
     public void searchBookWithWildcardTitlePer_ShouldReturn1(){
         String wildcard ="Per*";
-        Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isNotEqualTo(1);
+        Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(1);
     }
     @Test
     public void searchBookWithWildcardTitleThe_ShouldReturn2(){
         String wildcard ="The*";
-        Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isNotEqualTo(2);
+        Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(2);
     }
 
     // TEST BELOW IS INVALID -- NEEDS A FIX!!!
     @Test
     public void searchBookWithWildcardTitleThe_ShouldReturn1(){
         String wildcard ="The Da*";
-        Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isNotEqualTo(3);
+        Assertions.assertThat(br.searchBookPartialTitle(wildcard).size()).isEqualTo(1);
     }
 }
