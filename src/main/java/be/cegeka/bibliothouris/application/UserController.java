@@ -1,5 +1,6 @@
 package be.cegeka.bibliothouris.application;
 
+import be.cegeka.bibliothouris.domain.members.Member;
 import be.cegeka.bibliothouris.domain.members.MemberService;
 import be.cegeka.bibliothouris.domain.users.User;
 import be.cegeka.bibliothouris.domain.users.UserService;
@@ -50,4 +51,3 @@ public class UserController {
         memberService.addMember(INSZ, lastName, firstName, street, number, postalCode, city);
     }
 }
-

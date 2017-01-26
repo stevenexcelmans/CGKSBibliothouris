@@ -19,7 +19,7 @@ public class BookRepository {
 
     public String getShortDetails(String isbn) {
         for (Book book : books) {
-            if (book.getIsbn() == isbn) {
+            if (book.getIsbn().equals(isbn)){
                 return book.getShortDetails();
             }
         }
