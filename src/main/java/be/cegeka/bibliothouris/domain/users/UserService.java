@@ -14,6 +14,7 @@ public class UserService {
     @Inject
     private UserRepository userRepository;
     private MemberRepository memberRepository;
+    private Member member;
 
     private final AtomicLong counter = new AtomicLong();
 
@@ -23,6 +24,10 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.getAllUsers();
+    }
+
+    public List<Member> getShortDetailsAllMembers() {
+        return memberRepository.getShortDetailsListMembers();
     }
 
     public void addMember(Member member) {
