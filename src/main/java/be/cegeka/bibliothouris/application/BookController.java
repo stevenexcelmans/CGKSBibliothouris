@@ -52,7 +52,8 @@ public class BookController {
     @RequestMapping(value = "/searchBook", method = RequestMethod.GET)
     public
     @ResponseBody
-    ResponseEntity<List<Book>> searchBook(String partialIsbn) {
+    ResponseEntity<List<Book>> searchBook(
+            @RequestParam(value = "ISBN") String partialIsbn) {
         ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBook(partialIsbn), HttpStatus.OK);
         if (response.getBody().size() == 0) {
             response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
@@ -63,7 +64,8 @@ public class BookController {
     @RequestMapping(value = "/searchByPartialTitle", method = RequestMethod.GET)
     public
     @ResponseBody
-    ResponseEntity<List<Book>> searchByPartialTitle(String partialTitle) {
+    ResponseEntity<List<Book>> searchByPartialTitle(
+            @RequestParam (value = "title") String partialTitle) {
         ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBookPartialTitle(partialTitle), HttpStatus.OK);
         if (response.getBody().size() == 0) {
             response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
@@ -74,7 +76,8 @@ public class BookController {
     @RequestMapping(value = "/searchByPartialAuthor", method = RequestMethod.GET)
     public
     @ResponseBody
-    ResponseEntity<List<Book>> searchByPartialAuthor(String partialAuthor) {
+    ResponseEntity<List<Book>> searchByPartialAuthor(
+            @RequestParam (value = "author") String partialAuthor) {
         ResponseEntity<List<Book>> response = new ResponseEntity<List<Book>>(bookService.searchBookPartialAuthor(partialAuthor), HttpStatus.OK);
         if (response.getBody().size() == 0) {
             response = new ResponseEntity<List<Book>>(new ArrayList<Book>(), HttpStatus.NO_CONTENT);
