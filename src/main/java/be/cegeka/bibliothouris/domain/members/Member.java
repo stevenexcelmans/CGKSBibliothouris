@@ -1,6 +1,15 @@
 package be.cegeka.bibliothouris.domain.members;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Member {
+
+    @Inject
+    MemberRepository memberRepository;
 
     private String INSZ;
     private String lastName;
@@ -36,12 +45,10 @@ public class Member {
         return city;
     }
 
-
-    public String getShortDetailsMembers (){
+    /*if we still want to do something with story 8: Attributes shown: unique number (insz), last name, first name, city
+    public String getShortDetailsMembers() {
         return String.format("%s %s, %s (%s)", lastName, firstName, city, INSZ);
-    }
-
-
+    }*/
 
     @Override
     public boolean equals(Object o) {

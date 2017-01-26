@@ -11,15 +11,11 @@ public class MemberRepository {
     Member member;
 
     private List<Member> members = new ArrayList<>();
-    private List<Member> shortDetailsMembers = new ArrayList<>();
-
-    public List<Member> getShortDetailsMembers() {
-        return shortDetailsMembers.add();
-    }
 
     public List<Member> getAllMembers() {
         return members;
     }
+
 
     public void addMember(Member member) {
         members.add(member);
