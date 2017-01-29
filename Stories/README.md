@@ -1,25 +1,4 @@
 # Stories
-## List of content:
-1. [Story 1] (#Story 1)
-2. [Story 2] (#Story 2)
-3. [Story 3] (#Story 3)
-4. [Story 4] (#Story 4)
-5. [Story 5] (#Story 5)
-6. [Story 6] (#Story 6)
-7. [Story 7] (#Story 7)
-8. [Story 8] (#Story 8)
-9. [Story 9] (#Story 9)
-10. [Story 10] (#Story 10)
-11. [Story 11] (#Story 11)
-12. [Story 12] (#Story 12)
-13. [Story 13] (#Story 13)
-14. [Story 14] (#Story 14)
-15. [Story 15] (#Story 15)
-16. [Story 16] (#Story 16)
-17. [Story 17] (#Story 17)
-18. [Story 18] (#Story 18)
-19. [Story 19] (#Story 19)
-
 ## Story 1:
 As a registered user I can request a service to show all books registered in the system. These books should contain an ISBN, title and the author's last and first name 
 ## Story 2:
@@ -62,6 +41,7 @@ As a member I will get a fine when I return a book too late. (details see powerp
 ## Story 17:
 Make sure you can save your repositories to a file. Make this file human readable
 <details><summary>Hint:</summary>
+
 1. Try to search for serialisation and Java.
 2. You may use XML or JSON, for JSON jackson is already configured as a dependency.
 3. Don't make it performant, just make a new file everytime you add/remove/update an element.
@@ -69,9 +49,35 @@ Make sure you can save your repositories to a file. Make this file human readabl
 5. If you want to speed things up, search and use multi threading. This is an advanced topic.
 6. Do this in a separate class, and when you're up to it make it generic. 
 </details>
+
 ## Story 18:
 As an admin I want to make sure that non registered users can't access the application.
-You should also update the member information with password.
+You should also update the member information with passwords and user role.
+Update the REST requests
 <details><summary>Hint:</summary>
 Read the [Third step: Securing the REST service with Spring Security:](https://jaxenter.com/rest-api-spring-java-8-112289.html)
 </details>
+
+## Story 19
+As a librarian I want to have the same book multiple times. This ensures that we can lend the book at the same time to multiple members.
+Also check before lending a book that this book is available.
+Make sure that the correct person gets the fines.
+
+## Story 20
+As a librarian I want to mark a book damaged, this will give the previous loaner a fine:
+``` (initial price) * (1 - ((age of the book in years) * 0.2) ``` with a minimum of 5 euro.
+
+## Story 21
+As an accountant I want to send an invoice to the registered members.
+1. Create a new spring boot application with a different port (preferable another git repo)
+2. Make sure you can ask the other application for all of his users, and his fines.
+3. Every user should pay a subscription fee of 5 euro.
+4. Using a fake SMTP server send emails to the users. <http://papercut.codeplex.com/>
+
+## Story 22
+As a librarian I wan to have a report on the lending history of a book.
+This should contain the periods it has been loaned and by whom.
+Also try to sugest some data that could be usefull for the librarian within the report.
+
+## Story 23
+As an accountant I want to have a generated excel document about the revenue of a complete year. 
