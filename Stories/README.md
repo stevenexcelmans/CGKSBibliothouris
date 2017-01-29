@@ -2,6 +2,23 @@
 ## List of content:
 1. [Story 1] (#Story 1)
 2. [Story 2] (#Story 2)
+3. [Story 3] (#Story 3)
+4. [Story 4] (#Story 4)
+5. [Story 5] (#Story 5)
+6. [Story 6] (#Story 6)
+7. [Story 7] (#Story 7)
+8. [Story 8] (#Story 8)
+9. [Story 9] (#Story 9)
+10. [Story 10] (#Story 10)
+11. [Story 11] (#Story 11)
+12. [Story 12] (#Story 12)
+13. [Story 13] (#Story 13)
+14. [Story 14] (#Story 14)
+15. [Story 15] (#Story 15)
+16. [Story 16] (#Story 16)
+17. [Story 17] (#Story 17)
+18. [Story 18] (#Story 18)
+19. [Story 19] (#Story 19)
 
 ## Story 1:
 As a registered user I can request a service to show all books registered in the system. These books should contain an ISBN, title and the author's last and first name 
