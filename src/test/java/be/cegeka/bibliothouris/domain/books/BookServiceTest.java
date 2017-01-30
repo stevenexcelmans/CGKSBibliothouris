@@ -1,5 +1,6 @@
 package be.cegeka.bibliothouris.domain.books;
 
+import be.cegeka.bibliothouris.domain.books.author.Author;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;

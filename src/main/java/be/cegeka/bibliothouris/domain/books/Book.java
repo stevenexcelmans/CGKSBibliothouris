@@ -1,5 +1,7 @@
 package be.cegeka.bibliothouris.domain.books;
 
+import be.cegeka.bibliothouris.domain.books.author.Author;
+
 public class Book {
 
     private final String isbn;

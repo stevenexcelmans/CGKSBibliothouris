@@ -1,4 +1,4 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.bibliothouris.domain.books.author;
 
 import javax.inject.Named;
 import java.util.ArrayList;
@@ -18,7 +18,6 @@ public class AuthorRepository {
     public Author addAuthor(String firstName, String lastName) {
         Author author = new Author(firstName, lastName);
         authorList.add(author);
-
         return author;
     }
 

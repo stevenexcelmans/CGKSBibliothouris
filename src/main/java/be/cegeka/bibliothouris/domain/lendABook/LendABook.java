@@ -1,5 +1,6 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.bibliothouris.domain.lendABook;
 
+import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.members.Member;
 
 import javax.inject.Named;
