@@ -16,15 +16,6 @@ public class LendABookRepository {
     private List<LendABook> bookRentals = new ArrayList<>();
 
     public void addRentalBook(LendABook lendABook){
-        StringBuilder errorMessage = null;
-        if(lendABook.getBookISBN() == null){
-            errorMessage.append("ISBN doesn't exist. ");
-        }
-        if(lendABook.getMemberINSZ() == null){
-            errorMessage.append("INSZ doesn't exist.");
-        }
-        else{
-            bookRentals.add(lendABook);
-        }
+        bookRentals.add(lendABook);
     }
 }
