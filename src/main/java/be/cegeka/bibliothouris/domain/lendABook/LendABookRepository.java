@@ -10,8 +10,6 @@ import java.util.List;
  */
 @Named
 public class LendABookRepository {
-    @Inject
-    LendABook lendABook;
 
     private List<LendABook> bookRentals = new ArrayList<>();
 

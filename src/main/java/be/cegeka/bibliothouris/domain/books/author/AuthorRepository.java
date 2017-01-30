@@ -8,7 +8,6 @@ import java.util.Optional;
 @Named
 public class AuthorRepository {
 
-    @Named
     private List<Author> authorList = new ArrayList<>();
 
     public List<Author> getAllAuthors() {

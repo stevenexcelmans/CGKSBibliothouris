@@ -32,5 +32,7 @@ public class MemberService {
         return errorMessage.toString();
 
     }
-
+    public List<Member> searchMemberByINSZ(String insz){
+        return memberRepository.searchMemberINSZ(insz);
+    }
 }
