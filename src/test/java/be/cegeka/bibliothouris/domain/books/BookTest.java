@@ -18,15 +18,14 @@ public class BookTest {
     }
 
     @Test
-    public void ShouldReturnISBNTitleAndAuthor(){
+    public void ShouldReturnISBNTitleAndAuthor() {
         String expected = "isbn: 12345, title: Harry Potter, author: J.K. Rowling.";
         Assertions.assertThat(expected).isEqualTo(book.toString());
     }
 
     @Test
-    public void getDetails_returnsDetails(){
+    public void getDetails_returnsDetails() {
         String expected = "Harry Potter (12345)";
         Assertions.assertThat(expected).isEqualTo(book.getShortDetails());
     }
-
 }

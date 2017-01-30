@@ -11,11 +11,11 @@ public class AuthorRepository {
     @Named
     private List<Author> authorList = new ArrayList<>();
 
-    public List<Author> getAllAuthors(){
+    public List<Author> getAllAuthors() {
         return authorList;
     }
 
-    public Author addAuthor(String firstName, String lastName){
+    public Author addAuthor(String firstName, String lastName) {
         Author author = new Author(firstName, lastName);
         authorList.add(author);
 
@@ -27,7 +27,7 @@ public class AuthorRepository {
                 .filter(a -> (a.getFirstName().equals(firstName) && a.getLastName().equals(lastName)))
                 .findFirst();
 
-        if (result.isPresent()){
+        if (result.isPresent()) {
             return result.get();
         }
         return null;

@@ -1,15 +1,29 @@
 package be.cegeka.bibliothouris.domain.books;
 
-/**
- * Created by stevene on 25/01/2017.
- */
-/*public class BookServiceTest {
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
-    private Book;
-    private Author;
-
-    public
+public class BookServiceTest {
 
 
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
+
+    @InjectMocks
+    private BookService bookService;
+
+    @Mock
+    private BookRepository bookRepository;
+
+    @Test
+    public void addBook_ShouldCallBookRepository(){
+        bookService.addBook("978-454894-48","The Bible","Jezus", "Himself");
+
+        Mockito.verify(bookRepository).addBook(new Book("978-454894-48","The Bible",new Author("Jezus","Himself")));
+    }
 }
-*/

@@ -1,11 +1,8 @@
 package be.cegeka.bibliothouris.domain.books;
 
 import javax.inject.Named;
-import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
-
-import static javax.print.attribute.standard.MediaSizeName.A;
 
 @Named
 public class BookRepository {
@@ -22,7 +19,7 @@ public class BookRepository {
 
     public String getShortDetails(String isbn) {
         for (Book book : books) {
-            if (book.getIsbn() == isbn) {
+            if (book.getIsbn().equals(isbn)){
                 return book.getShortDetails();
             }
         }
