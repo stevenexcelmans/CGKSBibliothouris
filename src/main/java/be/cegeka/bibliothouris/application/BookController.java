@@ -1,6 +1,5 @@
 package be.cegeka.bibliothouris.application;
 
-
 import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookService;
 import com.sun.jmx.remote.internal.ArrayQueue;
